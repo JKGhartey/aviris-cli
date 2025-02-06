@@ -1,53 +1,66 @@
 {
-  "name": "@aviris/cli",
-  "version": "1.0.0",
-  "description": "CLI for installing and managing Aviris UI components",
-  "type": "module",
+  "name": "aviris-cli",
+  "version": "0.1.0",
+  "description": "CLI tool for installing and managing Aviris UI components",
+  "main": "dist/bin/aviris.js",
   "bin": {
     "aviris": "./dist/bin/aviris.js"
   },
+  "type": "module",
   "files": [
     "dist",
-    "templates"
+    "templates",
+    "README.md"
   ],
   "scripts": {
-    "clean": "rimraf dist",
-    "build": "npm run clean && tsc",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage",
-    "lint": "eslint . --ext .ts",
-    "prepublishOnly": "npm run test && npm run build"
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src/**/*.ts",
+    "prepublishOnly": "npm run build"
   },
-  "publishConfig": {
-    "access": "public"
+  "tsup": {
+    "entry": [
+      "src/bin/aviris.ts"
+    ],
+    "format": [
+      "esm"
+    ],
+    "dts": true,
+    "splitting": false,
+    "clean": true,
+    "target": "node16",
+    "platform": "node"
+  },
+  "dependencies": {
+    "commander": "^11.1.0",
+    "fs-extra": "^11.3.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.17.17",
+    "@types/react": "^18.0.8",
+    "@radix-ui/react-slot": "^1.0.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "eslint": "^8.19.0",
+    "react": "^18.2.0",
+    "tailwind-merge": "^3.0.1",
+    "tsup": "^8.3.6",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0"
   },
   "keywords": [
     "cli",
+    "aviris",
     "components",
-    "react",
-    "ui",
-    "typescript",
-    "tailwind"
+    "ui"
   ],
   "author": "Your Name",
   "license": "MIT",
-  "dependencies": {
-    "commander": "^11.0.0",
-    "fs-extra": "^11.1.1"
-  },
-  "devDependencies": {
-    "@types/fs-extra": "^11.0.1",
-    "@types/node": "^20.4.5",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "@vitest/coverage-v8": "^0.34.0",
-    "eslint": "^8.45.0",
-    "rimraf": "^5.0.1",
-    "typescript": "^5.1.6",
-    "vitest": "^0.34.0"
-  },
-  "engines": {
-    "node": ">=18.0.0"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/aviris-cli"
   }
 }

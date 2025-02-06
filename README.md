@@ -1,20 +1,34 @@
 # Aviris CLI
 
-A modern CLI tool for adding pre-built React components to your project. Built with TypeScript and inspired by shadcn/ui.
+A command-line interface for installing and managing Aviris UI components.
 
 ## Installation
 
+You can install the CLI globally using npm:
+
 ```bash
 npm install -g aviris-cli
-# or
+```
+
+Or using yarn:
+
+```bash
 yarn global add aviris-cli
-# or
-pnpm add -g aviris-cli
 ```
 
 ## Usage
 
+### List Available Components
+
+To see all available components:
+
+```bash
+aviris list
+```
+
 ### Add a Component
+
+To add a component to your project:
 
 ```bash
 aviris add <component-name>
@@ -23,82 +37,46 @@ aviris add <component-name>
 For example:
 
 ```bash
-aviris add button
+aviris add custom-button
 ```
 
 This will:
 
-1. Copy the component files to your project
-2. Install required dependencies
-3. Add necessary styles (if any)
-
-### List Available Components
-
-```bash
-aviris list
-```
+1. Copy the component files to your project's `components/custom` directory
+2. Display the required dependencies to install
+3. Show any required base components from shadcn/ui
 
 ## Available Components
 
-- `button` - A customized button component with variants
-- `code` - Code block with syntax highlighting and copy functionality
-- `preview` - Preview component with code view toggle
-- `table` - Advanced table with sorting and filtering
+- **CustomButton**: A customized button component based on shadcn/ui Button
+  - Dependencies: @radix-ui/react-slot, class-variance-authority, clsx, tailwind-merge
+  - Required base components: Button
 
-## Project Requirements
+## Requirements
 
-- Node.js >= 18
-- React project with TypeScript
-- Tailwind CSS (recommended)
-
-## Component Structure
-
-Components are added to your project in the following structure:
-
-```
-your-project/
-├── components/
-│   ├── Button.tsx
-│   ├── CodeBlock.tsx
-│   └── ...
-└── styles/
-    └── component-styles.css (if needed)
-```
+- Node.js 16.0.0 or higher
+- A project using React and Tailwind CSS
+- shadcn/ui setup in your project
 
 ## Development
 
-### Setup
+To build the project locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/aviris-cli.git
+git clone https://github.com/yourusername/aviris-cli
+cd aviris-cli
 
 # Install dependencies
-cd aviris-cli
 npm install
 
-# Build
+# Build the project
 npm run build
 
-# Run tests
-npm test
+# Link for local development
+npm link
 ```
-
-### Adding New Components
-
-1. Add component files to `templates/components/`
-2. Register the component in `commands/add.ts`
-3. Add tests in `tests/`
-4. Run tests and build
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details
+MIT
