@@ -1,12 +1,12 @@
 {
   "name": "aviris-cli",
-  "version": "0.1.0",
-  "description": "CLI tool for installing and managing Aviris UI components",
-  "main": "dist/bin/aviris.js",
-  "bin": {
-    "aviris": "./dist/bin/aviris.js"
-  },
+  "version": "1.0.0",
+  "description": "CLI tool for installing aviris components",
+  "main": "index.js",
   "type": "module",
+  "bin": {
+    "aviris": "./index.js"
+  },
   "files": [
     "dist",
     "templates",
@@ -32,8 +32,8 @@
     "platform": "node"
   },
   "dependencies": {
-    "commander": "^11.1.0",
-    "fs-extra": "^11.3.0"
+    "commander": "^9.0.0",
+    "fs-extra": "^10.0.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
@@ -57,10 +57,10 @@
     "components",
     "ui"
   ],
-  "author": "Your Name",
+  "author": "Jerome Ghartey",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/aviris-cli"
+    "url": "https://github.com/jkghartey/aviris-cli"
   }
 }
