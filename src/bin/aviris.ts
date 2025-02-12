@@ -25,6 +25,7 @@ program
 program
   .command("list")
   .description("List all available components")
+  .option("-d, --details", "Show detailed component information", false)
   .action(listComponents);
 
 program.parse();
