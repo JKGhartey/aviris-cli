@@ -8,7 +8,7 @@ import { listComponents } from "../commands/list.js";
 program
   .name("aviris")
   .description("CLI for installing Aviris components")
-  .version("1.0.3");
+  .version("1.0.5");
 
 program
   .command("init")
