@@ -1,10 +1,10 @@
 {
-  "name": "@aviris/cli",
+  "name": "aviris-cli",
   "version": "1.0.2",
   "description": "CLI tool for installing Aviris UI components",
   "type": "module",
   "bin": {
-    "aviris": "./dist/bin/aviris.js"
+    "aviris": "dist/aviris.js"
   },
   "files": [
     "dist",
@@ -67,7 +67,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jkghartey/aviris-cli"
+    "url": "git+https://github.com/jkghartey/aviris-cli.git"
   },
   "bugs": {
     "url": "https://github.com/jkghartey/aviris-cli/issues"
