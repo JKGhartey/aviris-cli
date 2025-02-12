@@ -3,7 +3,9 @@
   "version": "1.0.4",
   "description": "CLI tool for installing Aviris UI components",
   "type": "module",
-  "bin": "./dist/aviris.js",
+  "bin": {
+    "aviris": "./dist/aviris.js"
+  },
   "files": [
     "dist",
     "templates",
@@ -30,7 +32,8 @@
     "clean": true,
     "target": "node16",
     "platform": "node",
-    "outDir": "dist"
+    "outDir": "dist",
+    "shims": true
   },
   "dependencies": {
     "chalk": "^5.3.0",
