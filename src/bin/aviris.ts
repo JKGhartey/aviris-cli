@@ -8,7 +8,7 @@ import { listComponents } from "../commands/list.js";
 program
   .name("aviris")
   .description("CLI for installing Aviris components")
-  .version("1.1.0");
+  .version("1.1.1");
 
 program
   .command("init")
@@ -22,10 +22,12 @@ program
   .option("-o, --overwrite", "Overwrite existing files", false)
   .action(addComponent);
 
-program
+const list = program
   .command("list")
   .description("List all available components")
-  .option("-d, --details", "Show detailed component information")
-  .action((opts) => listComponents(opts));
+  .option("--details", "Show detailed component information")
+  .action((cmd) => {
+    listComponents({ details: cmd.details });
+  });
 
 program.parse();
