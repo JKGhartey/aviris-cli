@@ -1,6 +1,6 @@
 {
   "name": "aviris-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "CLI tool for installing Aviris UI components",
   "type": "module",
   "bin": {
