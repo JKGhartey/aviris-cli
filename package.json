@@ -3,9 +3,7 @@
   "version": "1.0.3",
   "description": "CLI tool for installing Aviris UI components",
   "type": "module",
-  "bin": {
-    "aviris": "dist/aviris.js"
-  },
+  "bin": "./dist/aviris.js",
   "files": [
     "dist",
     "templates",

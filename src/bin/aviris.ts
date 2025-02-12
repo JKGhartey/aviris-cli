@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 import { program } from "commander";
 import { addComponent } from "../commands/add.js";
 import { initProject } from "../commands/init.js";
@@ -7,7 +8,7 @@ import { listComponents } from "../commands/list.js";
 program
   .name("aviris")
   .description("CLI for installing Aviris components")
-  .version("1.0.2");
+  .version("1.0.3");
 
 program
   .command("init")
