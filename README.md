@@ -1,82 +1,89 @@
 # Aviris CLI
 
-A command-line interface for installing and managing Aviris UI components.
+A CLI tool for installing Aviris UI components - beautiful, accessible React components built with Tailwind CSS.
 
 ## Installation
 
-You can install the CLI globally using npm:
-
 ```bash
-npm install -g aviris-cli
-```
+# npm
+npm install -g @aviris/cli
 
-Or using yarn:
+# yarn
+yarn global add @aviris/cli
 
-```bash
-yarn global add aviris-cli
+# pnpm
+pnpm add -g @aviris/cli
 ```
 
 ## Usage
 
-### List Available Components
+1. Initialize Aviris in your project:
 
-To see all available components:
+```bash
+aviris init
+```
+
+This will:
+
+- Create the necessary directory structure
+- Add required dependencies
+- Set up utility functions
+
+2. List available components:
 
 ```bash
 aviris list
 ```
 
-### Add a Component
-
-To add a component to your project:
+3. Add a component:
 
 ```bash
 aviris add <component-name>
 ```
 
-For example:
+Example:
 
 ```bash
 aviris add custom-button
 ```
 
-This will:
+### Options
 
-1. Copy the component files to your project's `components/custom` directory
-2. Display the required dependencies to install
-3. Show any required base components from shadcn/ui
+When adding components:
+
+- `-y, --yes`: Skip confirmation prompts
+- `-o, --overwrite`: Overwrite existing files
 
 ## Available Components
 
-- **CustomButton**: A customized button component based on shadcn/ui Button
-  - Dependencies: @radix-ui/react-slot, class-variance-authority, clsx, tailwind-merge
-  - Required base components: Button
+### Custom Components
 
-## Requirements
+- CustomButton
+- CodeBlock
+- ComponentPreview
+- FolderStructure
+- SectionHeader
+- ApiTable
+- Toolbar
+- InstallationSection
 
-- Node.js 16.0.0 or higher
-- A project using React and Tailwind CSS
-- shadcn/ui setup in your project
+### Requirements
 
-## Development
+- Node.js 16 or later
+- A React project using Tailwind CSS
+- TypeScript (recommended)
 
-To build the project locally:
+## Documentation
 
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/aviris-cli
-cd aviris-cli
+For full documentation, visit [aviris.vercel.app](https://aviris.vercel.app)
 
-# Install dependencies
-npm install
+## Contributing
 
-# Build the project
-npm run build
-
-# Link for local development
-npm link
-```
+1. Clone the repository
+2. Install dependencies: `yarn install`
+3. Build the CLI: `yarn build`
+4. Link it locally: `yarn link`
 
 ## License
 
-MIT
+MIT © [Jerome Ghartey](https://github.com/jkghartey)

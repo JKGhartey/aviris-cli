@@ -1,35 +1,44 @@
-interface Component {
-  name: string;
-  description: string;
-  dependencies: string[];
-  baseComponents: string[];
-}
-
-const COMPONENTS: Record<string, Component> = {
-  "custom-button": {
-    name: "CustomButton",
-    description: "A customized button component based on shadcn/ui Button",
-    dependencies: [
-      "@radix-ui/react-slot",
-      "class-variance-authority",
-      "clsx",
-      "tailwind-merge",
-    ],
-    baseComponents: ["Button"],
-  },
-};
+import { Component, ComponentWithKey } from "../types/index.js";
+import { COMPONENTS } from "../registry/components.js";
 
 export function listComponents(): void {
   console.log("\nAvailable components:\n");
 
-  Object.entries(COMPONENTS).forEach(([key, component]) => {
-    console.log(`${component.name} (${key})`);
-    console.log(`Description: ${component.description}`);
+  // Group components by category
+  const componentsByCategory = Object.entries(COMPONENTS).reduce<
+    Record<string, ComponentWithKey[]>
+  >((acc, [key, component]) => {
+    const category = component.category;
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push({ key, ...component });
+    return acc;
+  }, {});
+
+  // Display components by category
+  Object.entries(componentsByCategory).forEach(([category, components]) => {
     console.log(
-      "Required base components:",
-      component.baseComponents.join(", ")
+      `\n${category.charAt(0).toUpperCase() + category.slice(1)} Components:`
     );
-    console.log("Dependencies:", component.dependencies.join(", "));
-    console.log("");
+
+    if (components.length === 0) {
+      console.log(`No ${category} components found`);
+    } else {
+      components.forEach(({ key, name, dependencies, baseComponents }) => {
+        console.log(`\n${name} (${key})`);
+
+        if (Object.keys(dependencies).length > 0) {
+          console.log("Dependencies:");
+          Object.entries(dependencies).forEach(([dep, version]) => {
+            console.log(`  ${dep}@${version}`);
+          });
+        }
+
+        if (baseComponents.length > 0) {
+          console.log("Required base components:", baseComponents.join(", "));
+        }
+      });
+    }
   });
 }
